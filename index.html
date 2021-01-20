@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
-<meta  lang="en" >
+<html  lang="en" >
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="theme-color" content="#fff" id="theme-color">
-  <link rel="icon" href="source/image/p3.png">
-  <title>Urim and Thummim</title>
+  <meta name="description" content="Hexo">
+  <link rel="icon" href="/img/Kaze.png">
+  <title>theme-kaze demo</title>
+  
+  
+  <meta property="og:title" content="theme-kaze demo">
+  
+  
+  <meta property="og:url" content="http://example.com/index.html">
+  
+  
+  <meta property="og:img" content="/img/Kaze.png">
+  
+  
+  
+  
   <script>
     // control reverse button
     var reverseDarkList = {
@@ -64,19 +77,17 @@
     }
   </script>
   
-  <link rel="preload" href="//at.alicdn.com/t/font_1946621_vpj3dq9ceqa.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
   <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
   
-  <link rel="preload" href="//cdn.jsdelivr.net/npm/fslightbox@3.1.0/index.min.js" as="script">
+  <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+  <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
   
   
   <link rel="preload" href="/js/lib/lozad.min.js" as="script">
   
   
   
-  
-  
-  <link rel="prefetch" href="//cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-svg.js" as="script">
   
   
   
@@ -86,12 +97,13 @@
 
   
   
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_vpj3dq9ceqa.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
 
   
   
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
 
+  
   
   
   
@@ -105,28 +117,58 @@
   <div class="navbar-logo">
     <span class="navbar-logo-main">
       
-      <img class="navbar-logo-img" src="source/image/p3.png">
+      <img class="navbar-logo-img" src="/img/Kaze.png" alt="logo">
       
-      <span class="navbar-logo-dsc">Urim and Thummim</span>
+      <span class="navbar-logo-dsc">theme-kaze demo</span>
     </span>
   </div>
   <div class="navbar-menu">
     
-    <a href="/" class="navbar-menu-item">Home </a>
+    <a href="/" class="navbar-menu-item">
     
-    <a href="/archives" class="navbar-menu-item">Archive </a>
+    Home
     
-    <a href="/tags" class="navbar-menu-item">Tags </a>
+    </a>
     
-    <a href="/categories" class="navbar-menu-item">Categories </a>
+    <a href="/archives" class="navbar-menu-item">
     
-    <a href="/about" class="navbar-menu-item">About </a>
+    Archive
     
-    <a href="/links" class="navbar-menu-item">Friends </a>
+    </a>
+    
+    <a href="/tags" class="navbar-menu-item">
+    
+    Tags
+    
+    </a>
+    
+    <a href="/categories" class="navbar-menu-item">
+    
+    Categories
+    
+    </a>
+    
+    <a href="/about" class="navbar-menu-item">
+    
+    About
+    
+    </a>
+    
+    <a href="/links" class="navbar-menu-item">
+    
+    Friends
+    
+    </a>
     
     <a class="navbar-menu-item darknavbar" id="dark"><i class="iconfont icon-weather"></i></a>
+    <a class="navbar-menu-item searchnavbar" id="search"><i class="iconfont icon-search" style="font-size: 1.2rem; font-weight: 400;"></i></a>
   </div>
 </nav>
+    
+    <div id="local-search" style="display: none;">
+      <input class="navbar-menu-item" id="search-input" placeholder="请输入搜索内容...">
+      <div id="search-content"></div>
+    </div>
     
     <div class="section-wrap">
       <div class="container">
@@ -147,14 +189,10 @@
     </div>
     <div class="card-post-footer">
       <div class="post-meta">
-        <time datetime="2021-01-20T03:26:29.000Z" style="display: flex; align-items: center;">
+        <time datetime="2021-01-20T03:26:29.000Z">
           <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
           <span>2021-01-20</span>
         </time>
-        
-        
-        <span class="dot"></span>
-        <span>1.4k words</span>
         
       </div>
       <a href="/2021/01/20/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">Read More </a>
@@ -177,14 +215,10 @@
     </div>
     <div class="card-post-footer">
       <div class="post-meta">
-        <time datetime="2021-01-19T14:46:44.000Z" style="display: flex; align-items: center;">
+        <time datetime="2021-01-19T14:46:44.000Z">
           <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
           <span>2021-01-19</span>
         </time>
-        
-        
-        <span class="dot"></span>
-        <span>15 words</span>
         
       </div>
       <a href="/2021/01/19/%E6%96%87%E7%AB%A0%E6%A0%87%E9%A2%98/">Read More </a>
@@ -207,14 +241,10 @@
     </div>
     <div class="card-post-footer">
       <div class="post-meta">
-        <time datetime="2021-01-19T13:43:28.000Z" style="display: flex; align-items: center;">
+        <time datetime="2021-01-19T13:43:28.000Z">
           <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
           <span>2021-01-19</span>
         </time>
-        
-        
-        <span class="dot"></span>
-        <span>0 words</span>
         
       </div>
       <a href="/2021/01/19/test-my-site/">Read More </a>
@@ -237,14 +267,10 @@
     </div>
     <div class="card-post-footer">
       <div class="post-meta">
-        <time datetime="2021-01-19T13:40:52.138Z" style="display: flex; align-items: center;">
+        <time datetime="2021-01-19T13:40:52.138Z">
           <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
           <span>2021-01-19</span>
         </time>
-        
-        
-        <span class="dot"></span>
-        <span>75 words</span>
         
       </div>
       <a href="/2021/01/19/hello-world/">Read More </a>
@@ -257,10 +283,10 @@
             
             <div class="card card-author">
               
-<img src="/image/p3.png" class="author-img">
+<img src="/img/Kaze.png" class="author-img">
 
-<p class="author-name">By</p>
-<p class="author-description">要学的东西太多了</p>
+<p class="author-name">theme-kaze</p>
+<p class="author-description">designed by theme-kaze</p>
 <div class="author-message">
   <a class="author-posts-count" href="/archives">
     <span>4</span>
@@ -282,7 +308,7 @@
   
   
   
-  <article class="card card-content">
+  <article class="card card-content categories-widget">
     <div class="categories-card">
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>Categories</div>
   <div class="categories-list">
@@ -291,7 +317,7 @@
 </div>
   </article>
   
-  <article class="card card-content">
+  <article class="card card-content tags-widget">
     <div class="tags-card">
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>hot tags</div>
   <div class="tags-list">
@@ -305,7 +331,7 @@
   </article>
   
   
-  <article class="card card-content widescreen-archive">
+  <article class="card card-content widescreen-archive archive-widget">
     <div class="archive-card">
   <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>Archive</div>
   <div class="archive-card-list">
@@ -429,81 +455,54 @@
           
           2021
         </span>
-        <a href="/" class="footer-link">Urim and Thummim </a>
+        &nbsp;
+        <a href="/" class="footer-link">theme-kaze demo </a>
       </div>
     </div>
 
     
     <div class="footer-dsc">
       
-      
       Powered by
       <a href="https://hexo.io/" class="footer-link" target="_blank" rel="nofollow noopener noreferrer">&nbsp;Hexo </a>
       
       
+      <span>&nbsp;|&nbsp;</span>
       
+      
+      Theme -
+      <a href="https://github.com/theme-kaze" class="footer-link" target="_blank"
+        rel="nofollow noopener noreferrer">&nbsp;Kaze</a>
       
     </div>
     
     
     
     
-      <div class="footer-dsc">
-        
-        本站总访问量<span id="busuanzi_value_site_pv"></span>次
-        
-        
-        <span>&nbsp;|&nbsp;</span>
-        
-        
-        本站总访客数<span id="busuanzi_value_site_uv"></span>次
-        
-      </div>
-      
-    
 </footer>
-  <a role="button" id="scrollbutton" class="basebutton" >
+  <a role="button" id="scrollbutton" class="basebutton"  aria-label="回到顶部">
   <i class="iconfont icon-arrowleft button-icon"></i>
 </a>
 <a role="button" id="menubutton" class="basebutton">
   <i class="iconfont icon-menu button-icon"></i>
 </a>
-<a role="button" id="popbutton" class="basebutton">
+<a role="button" id="popbutton" class="basebutton" aria-label="控制中心">
   <i class="iconfont icon-expand button-icon"></i>
 </a>
-<a role="button" id="darkbutton" class="basebutton darkwidget">
+<a role="button" id="darkbutton" class="basebutton darkwidget" aria-label="夜色模式">
   <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a role="button" id="searchbutton" class="basebutton searchwidget" aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
 </a>
 
   
   
-  
-
-  
-  
-  <script>
-  var addImgLayout = function () {
-    var img = document.querySelectorAll('.post-content img');
-    var i;
-    for (i = 0; i < img.length; i++) {
-      var wrapper = document.createElement('a');
-      wrapper.setAttribute('data-fslightbox', 'gallery');
-      wrapper.setAttribute('href', img[i].getAttribute('data-src'));
-      wrapper.setAttribute('style', 'width: 100%; display: flex; justify-content: center;');
-      img[i].parentElement.insertBefore(wrapper, img[i]);
-      wrapper.appendChild(img[i]);
-    }
-    refreshFsLightbox();
-  }
-</script>
-<script>loadScript("//cdn.jsdelivr.net/npm/fslightbox@3.1.0/index.min.js", addImgLayout)</script>
   
   
   
 <script src="/js/main.js"></script>
 
-  
-  <script>loadScript("/js/lib/busuanzi.min.js")</script>
   
   
   <script>
