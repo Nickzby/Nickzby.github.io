@@ -7,20 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="theme-color" content="#fff" id="theme-color">
   <meta name="description" content="Hexo">
-  <link rel="icon" href="/image/p3.PNG">
-  <title>格式测试</title>
+  <link rel="icon" href="/image/p3.png">
+  <title>git简记</title>
   
   
-  <meta property="og:title" content="格式测试">
+  <meta property="og:title" content="git简记">
   
   
-  <meta property="og:url" content="http://funguyblog.top/2021/01/22/2d64aee802c8/index.html">
+  <meta property="og:url" content="http://funguyblog.top/2021/01/ckk86byps00004kvdasqc4140/index.html">
   
   
-  <meta property="og:img" content="/image/p3.PNG">
+  <meta property="og:img" content="/image/p3.png">
   
   
-  <meta property="og:img" content="&lt;p&gt;测试&lt;br&gt;这里是摘要&lt;br&gt;&lt;/p&gt;">
+  <meta property="og:img" content="&lt;p&gt;其实我也不清楚怎么用，下面的是我找的别人的教程。&lt;br&gt;&lt;/p&gt;">
   
   
   <meta property="og:type" content="article">
@@ -28,6 +28,8 @@
   <meta property="og:article:modified_time" content="2021-01-22">
   <meta property="og:article:author" content="By">
   
+  
+  <meta property="og:article:tag" content="Git">
   
   
   
@@ -134,7 +136,7 @@
   <div class="navbar-logo">
     <span class="navbar-logo-main">
       
-      <img class="navbar-logo-img" src="/image/p3.PNG" alt="logo">
+      <img class="navbar-logo-img" src="/image/p3.png" alt="logo">
       
       <span class="navbar-logo-dsc">Urim and Thummim</span>
     </span>
@@ -188,35 +190,84 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      格式测试
+      git简记
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2021-01-22T08:57:48.000Z">
+    <time datetime="2021-01-22T10:59:11.000Z">
       <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
       <span>2021-01-22</span>
     </time>
     
+    <span class="dot"></span>
+    
+    <a href="/categories/学习/" class="post-meta-link">学习</a>
+    
+    
     
     <span class="dot"></span>
-    <span>19 字</span>
+    <span>446 字</span>
     
+  </div>
+  
+  <div class="post-meta post-show-meta" style="margin-top: -10px;">
+    <div style="display: flex; align-items: center;">
+      <i class="iconfont icon-biaoqian" style="margin-right: 2px; font-size: 1.15rem;"></i>
+      
+      
+        <a href="/tags/Git/" class="post-meta-link">Git</a>
+      
+    </div>
   </div>
   
   </header>
   <div id="section" class="post-content">
-    <p>测试<br>这里是摘要<br><a id="more"></a></p>
-<p>这里是正文部分<br>hhhhhh<br>hhhh<br><img src="/2021/01/22/2d64aee802c8/p1.jpg" alt="1" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2021/01/22/2d64aee802c8/p1.jpg" class="lozad post-image"></p>
-<p><img src="/2021/01/22/2d64aee802c8/p2.jpg" alt="2" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2021/01/22/2d64aee802c8/p2.jpg" class="lozad post-image"></p>
-<p><img src="/image/p3.PNG" alt="3" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/image/p3.PNG" class="lozad post-image"></p>
-<p>$ \cos $<br>$ \pi $  </p>
-<div class="post-note note-success"><p>…markdown content<br>nihao</p></div>
+    <p>其实我也不清楚怎么用，下面的是我找的别人的教程。<br><a id="more"></a></p>
+<ul>
+<li>首先vscode要安装git, 方便在前者自带的终端操作</li>
+<li>为避免浪费时间，建议直接git bash here直接操作，尤其是远程连接仓库的部分</li>
+<li>另外如果没有反应可以重启vscode，或清理工作树（未知）</li>
+</ul>
+<pre class="highlight"><code class="hljs git">git --version<br></code></pre>
+<p>查看版本也相当于检查有没有安装git.</p>
+<ul>
+<li><p>在Github或者Gitlab或者码云(应该也行)创建仓库repo,私人或者公开。</p>
+</li>
+<li><p>在本地创建文件夹mycode(用于和线上绑定，方便同步)</p>
+</li>
+<li>在vscode进入本地文件夹mycode<code>dir \path\mycode</code>,并初始化<code>git init</code></li>
+<li>添加用户名和邮箱，只用注册时用的用户名和邮箱,gitlab使用的是域，注意后缀不是普通的@gitlab.com</li>
+</ul>
+<pre class="highlight"><code class="hljs git">git config --global user.name &quot;myname&quot;<br>git config --global user.email &quot;myname@mymail.com&quot;<br></code></pre>
+<p>参数<code>--global</code>不建议添加，这意味着全部仓库密钥都会用这个，我没有添加</p>
+<ul>
+<li>开始生成密钥，这里使用rsa, 2048位</li>
+</ul>
+<pre class="highlight"><code class="hljs powershell">ssh<span class="hljs-literal">-keygen</span> <span class="hljs-literal">-t</span> rsa <span class="hljs-literal">-b</span> <span class="hljs-number">2048</span> <span class="hljs-literal">-C</span> <span class="hljs-string">&quot;email@example.com&quot;</span><br></code></pre>
+<p>之后出现</p>
+<pre class="highlight"><code class="hljs ssh">Generating public&#x2F;private rsa key pair.<br>Enter file in which to save the key (&#x2F;home&#x2F;user&#x2F;.ssh&#x2F;id_rsa):<br></code></pre>
+<p>因为之前没有生成过密钥，默认放置如上位置，此时回车即可，<code>\.ssh</code>文件夹中将出现两种文件，<strong>id_rsa</strong>和<strong>id_rsa.pub</strong></p>
+<ul>
+<li>将id_rsa.pub中的密钥复制粘贴至线上ssh设置中</li>
+<li>绑定本地文件夹和线上仓库</li>
+</ul>
+<pre class="highlight"><code class="hljs git">git remote add mycode git@github.com:myname&#x2F;myrepo.git<br></code></pre>
+<p>之后的修改便可在本地文件夹操作</p>
+<ul>
+<li>可以做一次连接测试</li>
+</ul>
+<pre class="highlight"><code class="hljs ssh">ssh -T git@github.com<br></code></pre>
+<ul>
+<li>如果本地文件需要更新，选择<strong>拉取</strong></li>
+<li>需要上传云端，先<strong>提交</strong>保存至本地，然后<strong>推送</strong></li>
+</ul>
+
   </div>
   <div>
   
   <div class="post-note note-warning copyright" style="margin-top: 42px">
     <p><span style="font-weight: bold;">作者：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://funguyblog.top/about">By</a></p>
-    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://funguyblog.top/2021/01/22/2d64aee802c8/">http://funguyblog.top/2021/01/22/2d64aee802c8/</a></p>
+    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://funguyblog.top/2021/01/ckk86byps00004kvdasqc4140/">http://funguyblog.top/2021/01/ckk86byps00004kvdasqc4140/</a></p>
     <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
   </div>
   
@@ -224,25 +275,13 @@
 </article>
 <div class="nav">
   
-  <div class="nav-item-prev">
-    <a href="/2021/01/22/5e8b1777a424/" class="nav-link">
-      <i class="iconfont icon-left nav-prev-icon"></i>
-      <div>
-        <div class="nav-label">上一篇</div>
-        
-        <div class="nav-title">git简记 </div>
-        
-      </div>
-    </a>
-  </div>
-  
   
   <div class="nav-item-next">
-    <a href="/2021/01/20/ff5bdcde39a2/" class="nav-link">
+    <a href="/2021/01/ceshi/" class="nav-link">
       <div>
         <div class="nav-label">下一篇</div>
         
-        <div class="nav-title">使用hexo搭建博客 </div>
+        <div class="nav-title">格式测试 </div>
         
       </div>
       <i class="iconfont icon-right nav-next-icon"></i>
@@ -259,7 +298,7 @@
             
             <div class="card card-author">
               
-<img src="/image/p3.PNG" class="author-img">
+<img src="/image/p3.png" class="author-img">
 
 <p class="author-name">By</p>
 <p class="author-description">积极阳光向上</p>
@@ -352,22 +391,22 @@
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-01-22</div>
-        <a href="/2021/01/22/5e8b1777a424/"><div class="recent-posts-item-content">git简记</div></a>
+        <a href="/2021/01/ckk86byps00004kvdasqc4140/"><div class="recent-posts-item-content">git简记</div></a>
       </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-01-22</div>
-        <a href="/2021/01/22/2d64aee802c8/"><div class="recent-posts-item-content">格式测试</div></a>
+        <a href="/2021/01/ceshi/"><div class="recent-posts-item-content">格式测试</div></a>
       </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-01-20</div>
-        <a href="/2021/01/20/ff5bdcde39a2/"><div class="recent-posts-item-content">使用hexo搭建博客</div></a>
+        <a href="/2021/01/ckk56sbv50002xkvd0l3v9607/"><div class="recent-posts-item-content">使用hexo搭建博客</div></a>
       </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-01-19</div>
-        <a href="/2021/01/19/bfd8cd4fb5a2/"><div class="recent-posts-item-content">Hello World</div></a>
+        <a href="/2021/01/ckk56sbv20001xkvd8ukt7g9r/"><div class="recent-posts-item-content">Hello World</div></a>
       </div>
     
   </div>
@@ -467,20 +506,6 @@
 
   
   
-  
-
-  
-  
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        }
-      };
-    </script>
-    
-<script src="//cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-svg.js"></script>
-
   
 
   
