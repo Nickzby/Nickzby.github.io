@@ -8,19 +8,19 @@
   <meta name="theme-color" content="#fff" id="theme-color">
   <meta name="description" content="Hexo">
   <link rel="icon" href="/image/p3.PNG">
-  <title>树莓派安装kali</title>
+  <title>树莓派-项目</title>
   
   
-  <meta property="og:title" content="树莓派安装kali">
+  <meta property="og:title" content="树莓派-项目">
   
   
-  <meta property="og:url" content="http://funguyblog.top/2021/01/raspi-kali/index.html">
+  <meta property="og:url" content="http://funguyblog.top/2021/01/rasp-prohect/index.html">
   
   
   <meta property="og:img" content="/image/p3.PNG">
   
   
-  <meta property="og:img" content="&lt;p&gt;简单记一下怎么用树莓派安装kali&lt;br&gt;&lt;/p&gt;">
+  <meta property="og:img" content="&lt;p&gt;曾经做的树莓派项目，也是学校的项目，和电台、小车结合&lt;br&gt;&lt;/p&gt;">
   
   
   <meta property="og:type" content="article">
@@ -28,8 +28,6 @@
   <meta property="og:article:modified_time" content="2021-01-24">
   <meta property="og:article:author" content="By">
   
-  
-  <meta property="og:article:tag" content="kali">
   
   <meta property="og:article:tag" content="raspberry">
   
@@ -192,11 +190,11 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      树莓派安装kali
+      树莓派-项目
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2021-01-24T08:07:22.000Z">
+    <time datetime="2021-01-24T09:02:14.000Z">
       <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
       <span>2021-01-24</span>
     </time>
@@ -208,7 +206,7 @@
     
     
     <span class="dot"></span>
-    <span>919 字</span>
+    <span>989 字</span>
     
   </div>
   
@@ -217,11 +215,6 @@
       <i class="iconfont icon-biaoqian" style="margin-right: 2px; font-size: 1.15rem;"></i>
       
       
-        <a href="/tags/kali/" class="post-meta-link">kali</a>
-      
-      
-      <span class="dot"></span>
-      
         <a href="/tags/raspberry/" class="post-meta-link">raspberry</a>
       
     </div>
@@ -229,51 +222,76 @@
   
   </header>
   <div id="section" class="post-content">
-    <p>简单记一下怎么用树莓派安装kali<br><a id="more"></a></p>
+    <p>曾经做的树莓派项目，也是学校的项目，和电台、小车结合<br><a id="more"></a></p>
 <div class="post-note note-info"><p>最后更新于2021年1月24日</p></div>
-<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><ul>
-<li>树莓派，这里使用树莓派4B，内存2G</li>
-<li>从<a target="_blank" rel="noopener" href="https://www.offensive-security.com/kali-linux-arm-images/">官网</a>下载的镜像文件,arm用的，本想着考虑内存就2g，64位的系统不知道能不能带起来，不管了先试试。这里下载的是2020.3</li>
-<li>一根网线</li>
-<li>TF卡，建议&gt;=16G</li>
-<li>win32Diskimage的烧录软件</li>
-<li>SDformatterha的格式化SD卡的软件</li>
-<li>putty，使用ssh连接kali的软件</li>
+<h2 id="关于EMORO2560板子的一些参数"><a href="#关于EMORO2560板子的一些参数" class="headerlink" title="关于EMORO2560板子的一些参数"></a>关于EMORO2560板子的一些参数</h2><ul>
+<li>三脚IO口最左侧接地，中间应该是VCC，右侧是可控的高低电平输入输出。</li>
+<li>SERVO最左侧接地</li>
+<li>ADC左侧接</li>
+<li>GPP左侧接地</li>
+<li>PWM  2x6接口<br>左下为坐标（1,1）点，(1,1)PWM_0 (1,2)是PWM_1 (2,1)是PWM_2  (2,2)是PWM_3 ,(3,1)是PWM_4, (3,2)PWM_5。（6，1）和（5，2）接地</li>
+<li>ISP右上角接地</li>
+<li>JTAG左上和右上角接地I2C，最左侧接地</li>
 </ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
-<li>首先下载好镜像文件，2020.3是1.9G的压缩包，解压后大概8、9个G，不放心的可以sha256验证。</li>
-<li>格式化TF卡，我认为可以跳过，但是看别的教程都用SDformatterha格式化，那就按他们说的来，其实我认为插入电脑然后右键的格式化也行。</li>
-<li>使用win32diskimage开始烧录，选择写入，11分钟左右。</li>
-<li>安装进树莓派，连接网线。</li>
-<li>打开网络共享设置，以太网也就是本地连接-属性-ipv4-设置网关-我在这设置的192.168.137.1，子网掩码点一下就行。</li>
-<li>如果出现找不到ip的情况，wlan连接里-属性-ipv4-共享关闭再打开（似乎有刷新作用），之后命令行<code>arp -a</code>,查找ip。</li>
-<li>最后putty连接，端口22。如果出现报错“couldn’t agree a key exchange…”,原来是putty版本太老，官网下载最新的。别人都是用xshell，我看也行，只不过我到期了。</li>
-</ol>
-<h2 id="进入系统"><a href="#进入系统" class="headerlink" title="进入系统"></a>进入系统</h2><ol>
-<li>用户名和密码都是kali，以前都是默认root用户，现在2020年革新，初始不再是root用户，需要手动切换<code>sudo su</code>,继续输入默认密码kali</li>
-<li>使用命令行（因为我没连接显示屏）连接wifi，有了这一步基本就走到新世界大门了。这里有<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1494772">链接</a>,节省时间我贴出来。</li>
-</ol>
-<pre class="highlight"><code class="hljs bash">ifconfig          <span class="hljs-comment">#找到无线网卡，应该都是wlan0</span><br>ifconfig wlan0 up <span class="hljs-comment">#启动wifi</span><br>wpa_passphrase &#123;SSID&#125; &#123;PASSWORD&#125; &gt; /etc/wpa_supplicant/&#123;SSID&#125;.conf<br>                  <span class="hljs-comment">#其中花括号&#123;&#125;不用加，这一步是添加需要连接的wifi信息</span><br>wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/&#123;SSID&#125;.conf -B<br>                  <span class="hljs-comment">#连接无线网，&#123;&#125;依然不用加</span><br>dhclient wlan0    <span class="hljs-comment">#分配ip，不清楚为什么要手动，以为都是自动的。</span><br>ifconfig          <span class="hljs-comment">#检测连接是否成功</span><br></code></pre>
-<p>完成上面的，只是说这次能用wifi，关机重启还是不能连接。</p>
-<p>再附加几个命令</p>
-<pre class="highlight"><code class="hljs bash">iw wlan0 scan     <span class="hljs-comment">#扫描无线网络</span><br>iw wlan0 link     <span class="hljs-comment">#查看无线状态</span><br></code></pre>
-<p>vncserver 设置密码kalikali<br>priority 在wpa_supplicant中有优先级的意思，数字越大优先级越高<br>network中直接多个设置，有花括号。</p>
+<h2 id="PWM"><a href="#PWM" class="headerlink" title="PWM"></a>PWM</h2><ul>
+<li>PWM全称Pulse width modulation，脉冲宽度调制。输出不同宽度的矩形波。emoro2560上的pwm频率是500Hz，周期2ms，可用来输出普通电平，比如呼吸灯。但是并不匹配常用舵机，比如TS90A，此类舵机适用周期20ms的。</li>
+<li>曾想过用IO，控制时间输出高低电平，达到pwm的目的，然而delay()和delaymicroseconds（）函数似乎都不允许，或者说无法控制的那么精准。或许需要更改ATmega的参数，网上有类似教程，过于麻烦。遂改用servo，虽然鬼畜，不够顺滑，效果勉强。</li>
+<li>analogwirte（）</li>
+</ul>
+<h2 id="RGB-灯"><a href="#RGB-灯" class="headerlink" title="RGB 灯"></a>RGB 灯</h2><ul>
+<li>使用PWM控制（0-255），可做成呼吸灯，IO等其他的接口也可使用，只有高低，对应暗亮，不够灵活。三色不同组合叠加显示不同颜色。</li>
+<li>实际运行过快，建议用delay（10）延时。</li>
+<li>for语句执行。</li>
+</ul>
+<h2 id="舵机"><a href="#舵机" class="headerlink" title="舵机"></a>舵机</h2><ul>
+<li>TS90A</li>
+<li>舵机棕色的线接，中间的是vcc，橘色的是高低电平输入输出。</li>
+<li>高低不同的占空比用来控制转动方向，50%时居中，理论应是180°，实际比这个角度大，考虑到使用SERVO控制（50-2500，1500停止）的，也没细查，索性也就2500最大，500最小。</li>
+</ul>
+<h2 id="Bluetooth"><a href="#Bluetooth" class="headerlink" title="Bluetooth"></a>Bluetooth</h2><ul>
+<li>默认密码0000，user: emoro2560</li>
+<li>每次开机就打开了，自动初始化。似乎串口每次接受1个（或一次）字符，所以使用遥感控制有待商榷，不排除这个可能。</li>
+<li>通过手机向其发送字符。Serival1。大多数教程都是serival，应该注意。</li>
+</ul>
+<h2 id="Raspberry摄像头"><a href="#Raspberry摄像头" class="headerlink" title="Raspberry摄像头"></a>Raspberry摄像头</h2><ul>
+<li>有点复杂</li>
+<li>不过比起舵机还是小事，起码有代码能参考一点。</li>
+<li>本次使用的CSI接口的摄像头（一排线），区别于USB接口。<br>安装时切记断电。</li>
+<li>配置什么的就不用说了，保险起见使用3B，并且系统也是老的。</li>
+</ul>
 <ol>
-<li>换源</li>
+<li>首先打开配置使摄像头处于enable。<br>sudo raspi-config</li>
+<li>可以进行拍照<br>raspistill -t 20000 -o image.jpg -rot 180 -w 1024 -h 768 -q 8 -t 20000 -tl 5000 -v<br><code>-t 20000</code>是延时20秒<br><code>-t1 5000</code>间隔五秒拍摄一张<br><code>-o image.jpg</code>是保存图片名称<br><code>-rot 180</code>镜头反转180°<br><code>-w 1024 -h 768</code>自定义宽高<br><code>-q</code>图像质量，似乎8质量还行<br><code>-v</code>运行摄像头时输出详细信息  </li>
 </ol>
-<p>添加这些<br><code>deb http://http.kali.org/kali kali-rolling main non-free contrib</code></p>
-<p><code>deb-src http://http.kali.org/kali kali-rolling main non-free contrib</code><br>可能会切换到东软，这个源不错。中科大和清华的一些kali-roll似乎软件不够。</p>
-<p>ok,以上就是将kali安装进树莓派的全部内容了，还有设置中文、时区等一些其他的问题，我觉得无关紧要。下面开始介绍细节配置问题。</p>
-<h2 id="wifi配置"><a href="#wifi配置" class="headerlink" title="wifi配置"></a>wifi配置</h2><p>为了不用每次登录都要找网线，或者重新进行一边上面的命令，修改一些配置可达到目的。</p>
-<pre class="highlight"><code class="hljs bash"><span class="hljs-built_in">cd</span> /etc/wpa_supplicant/    <span class="hljs-comment">#进入目录</span><br>wpa_passphrase <span class="hljs-string">&quot;ssid&quot;</span> <span class="hljs-string">&quot;12345678&quot;</span> &gt; wpa_supplicant.conf <br><span class="hljs-comment">#设置要连接的wifi名称和密码（经测试在更换wifi时会刷新文件配置留下一个最近的wifi）</span><br>vi /etc/network/interfaces<br><br><span class="hljs-comment">#在文件中添加下面配置</span><br>auto wlan0<br>allow-hotplug wlan0     <span class="hljs-comment">#使用wlan0</span><br>iface wlan0 inet manual <span class="hljs-comment">#manual在某些教程中换成了dhcp</span><br>wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf<br>iface default inet dhcp<br>reboot<br></code></pre>
-<p>未完待续。。。</p>
+<h3 id="视频流"><a href="#视频流" class="headerlink" title="视频流"></a>视频流</h3><p>分情况使用。首先使用（linux）arp -a和ifconfig判断本机当前的局域网地址IP。一个作为主机。这里总是默认192.168.XXX.XXX，根据情况判断。默认端口都是8080</p>
+<ol>
+<li><p>下载源码<br><code>git clone https://github.com/jacksonliam/mjpg-streamer.git</code></p>
+</li>
+<li><p>下载依赖包  </p>
+</li>
+</ol>
+<pre class="highlight"><code class="hljs bash">sudo apt-get install libjpeg8-dev<br>sudo apt-get install cmake<br></code></pre>
+<ol>
+<li>编译</li>
+</ol>
+<p>有又出现warning的可能，建议sudo执行)</p>
+<pre class="highlight"><code class="hljs bash"><span class="hljs-built_in">cd</span> mjpg-streamer-master/mjpg-streamer-experimental<br>make clean all<br></code></pre>
+<ol>
+<li><p>添加摄像头，因为需要在网页视频流中启用摄像头。而摄像头仅仅可以拍照和拍摄简单视频，并不能达到实时监控的效果，另外<code>ls /dev</code> 没有video0。<br><code>chmod 777 /etc/modules</code></p>
+</li>
+<li><p>改变文档权限。<br>在该文档最后一行添加bcm2835-v4l2<br>重启<code>sudo halt</code></p>
+</li>
+<li><p>有mjpg和vlc两种方式，后者有些麻烦，反正没实现。这次使用前者。</p>
+<pre class="highlight"><code class="hljs bash"><span class="hljs-built_in">cd</span> mjpg-streamer-master/mjpg-streamer-experimental<br>./mjpg_streamer -i <span class="hljs-string">&quot;./input_raspicam.so&quot;</span> -o <span class="hljs-string">&quot;./output_http.so -w ./www&quot;</span><br></code></pre></li>
+<li>可改变一些参数<br><code>i &quot;./input_raspicam.so -fps 60 -x 320 -y 240&quot;</code><br><code>-p 80</code>改变端口<br>暂时就这么多吧</li>
+</ol>
 
   </div>
   <div>
   
   <div class="post-note note-warning copyright" style="margin-top: 42px">
     <p><span style="font-weight: bold;">作者：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://funguyblog.top/about">By</a></p>
-    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://funguyblog.top/2021/01/raspi-kali/">http://funguyblog.top/2021/01/raspi-kali/</a></p>
+    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://funguyblog.top/2021/01/rasp-prohect/">http://funguyblog.top/2021/01/rasp-prohect/</a></p>
     <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
   </div>
   
@@ -281,25 +299,13 @@
 </article>
 <div class="nav">
   
-  <div class="nav-item-prev">
-    <a href="/2021/01/raspberry_init/" class="nav-link">
-      <i class="iconfont icon-left nav-prev-icon"></i>
-      <div>
-        <div class="nav-label">上一篇</div>
-        
-        <div class="nav-title">树莓派初始配置 </div>
-        
-      </div>
-    </a>
-  </div>
-  
   
   <div class="nav-item-next">
-    <a href="/2021/01/simple_markdown/" class="nav-link">
+    <a href="/2021/01/rasp-FM/" class="nav-link">
       <div>
         <div class="nav-label">下一篇</div>
         
-        <div class="nav-title">Markdown </div>
+        <div class="nav-title">树莓派-FM电台 </div>
         
       </div>
       <i class="iconfont icon-right nav-next-icon"></i>
@@ -310,7 +316,7 @@
 
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E9%98%B6%E6%AE%B5"><span class="toc-number">1.</span> <span class="toc-text">准备阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.</span> <span class="toc-text">进入系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wifi%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">wifi配置</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EEMORO2560%E6%9D%BF%E5%AD%90%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">关于EMORO2560板子的一些参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PWM"><span class="toc-number">2.</span> <span class="toc-text">PWM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RGB-%E7%81%AF"><span class="toc-number">3.</span> <span class="toc-text">RGB 灯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%88%B5%E6%9C%BA"><span class="toc-number">4.</span> <span class="toc-text">舵机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bluetooth"><span class="toc-number">5.</span> <span class="toc-text">Bluetooth</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Raspberry%E6%91%84%E5%83%8F%E5%A4%B4"><span class="toc-number">6.</span> <span class="toc-text">Raspberry摄像头</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E6%B5%81"><span class="toc-number">6.1.</span> <span class="toc-text">视频流</span></a></li></ol></li></ol>
 </div></main>
           <aside class="left-column">
             
@@ -353,7 +359,7 @@
   <article class="display-when-two-columns spacer">
     <div class="card card-content toc-card">
       <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E9%98%B6%E6%AE%B5"><span class="toc-number">1.</span> <span class="toc-text">准备阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.</span> <span class="toc-text">进入系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wifi%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">wifi配置</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EEMORO2560%E6%9D%BF%E5%AD%90%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">关于EMORO2560板子的一些参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PWM"><span class="toc-number">2.</span> <span class="toc-text">PWM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RGB-%E7%81%AF"><span class="toc-number">3.</span> <span class="toc-text">RGB 灯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%88%B5%E6%9C%BA"><span class="toc-number">4.</span> <span class="toc-text">舵机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bluetooth"><span class="toc-number">5.</span> <span class="toc-text">Bluetooth</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Raspberry%E6%91%84%E5%83%8F%E5%A4%B4"><span class="toc-number">6.</span> <span class="toc-text">Raspberry摄像头</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E6%B5%81"><span class="toc-number">6.1.</span> <span class="toc-text">视频流</span></a></li></ol></li></ol>
     </div>
   </article>
   
@@ -415,7 +421,7 @@
   
   <article class="card card-content toc-card">
     <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E9%98%B6%E6%AE%B5"><span class="toc-number">1.</span> <span class="toc-text">准备阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.</span> <span class="toc-text">进入系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wifi%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">wifi配置</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EEMORO2560%E6%9D%BF%E5%AD%90%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">关于EMORO2560板子的一些参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PWM"><span class="toc-number">2.</span> <span class="toc-text">PWM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RGB-%E7%81%AF"><span class="toc-number">3.</span> <span class="toc-text">RGB 灯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%88%B5%E6%9C%BA"><span class="toc-number">4.</span> <span class="toc-text">舵机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bluetooth"><span class="toc-number">5.</span> <span class="toc-text">Bluetooth</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Raspberry%E6%91%84%E5%83%8F%E5%A4%B4"><span class="toc-number">6.</span> <span class="toc-text">Raspberry摄像头</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E6%B5%81"><span class="toc-number">6.1.</span> <span class="toc-text">视频流</span></a></li></ol></li></ol>
   </article>
   
   
