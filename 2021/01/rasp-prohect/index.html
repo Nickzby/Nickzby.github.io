@@ -235,8 +235,8 @@
 </ul>
 <h2 id="PWM"><a href="#PWM" class="headerlink" title="PWM"></a>PWM</h2><ul>
 <li>PWM全称Pulse width modulation，脉冲宽度调制。输出不同宽度的矩形波。emoro2560上的pwm频率是500Hz，周期2ms，可用来输出普通电平，比如呼吸灯。但是并不匹配常用舵机，比如TS90A，此类舵机适用周期20ms的。</li>
-<li>曾想过用IO，控制时间输出高低电平，达到pwm的目的，然而delay()和delaymicroseconds（）函数似乎都不允许，或者说无法控制的那么精准。或许需要更改ATmega的参数，网上有类似教程，过于麻烦。遂改用servo，虽然鬼畜，不够顺滑，效果勉强。</li>
-<li>analogwirte（）</li>
+<li>曾想过用IO，控制时间输出高低电平，达到pwm的目的，然而delay()和delaymicroseconds()函数似乎都不允许，或者说无法控制的那么精准。或许需要更改ATmega的参数，网上有类似教程，过于麻烦。遂改用servo，虽然鬼畜，不够顺滑，效果勉强。</li>
+<li>analogwirte()</li>
 </ul>
 <h2 id="RGB-灯"><a href="#RGB-灯" class="headerlink" title="RGB 灯"></a>RGB 灯</h2><ul>
 <li>使用PWM控制（0-255），可做成呼吸灯，IO等其他的接口也可使用，只有高低，对应暗亮，不够灵活。三色不同组合叠加显示不同颜色。</li>
@@ -260,7 +260,7 @@
 <li>配置什么的就不用说了，保险起见使用3B，并且系统也是老的。</li>
 </ul>
 <ol>
-<li>首先打开配置使摄像头处于enable。<br>sudo raspi-config</li>
+<li>首先打开配置使摄像头处于enable。<br><code>sudo raspi-config</code></li>
 <li>可以进行拍照<br>raspistill -t 20000 -o image.jpg -rot 180 -w 1024 -h 768 -q 8 -t 20000 -tl 5000 -v<br><code>-t 20000</code>是延时20秒<br><code>-t1 5000</code>间隔五秒拍摄一张<br><code>-o image.jpg</code>是保存图片名称<br><code>-rot 180</code>镜头反转180°<br><code>-w 1024 -h 768</code>自定义宽高<br><code>-q</code>图像质量，似乎8质量还行<br><code>-v</code>运行摄像头时输出详细信息  </li>
 </ol>
 <h3 id="视频流"><a href="#视频流" class="headerlink" title="视频流"></a>视频流</h3><p>分情况使用。首先使用（linux）arp -a和ifconfig判断本机当前的局域网地址IP。一个作为主机。这里总是默认192.168.XXX.XXX，根据情况判断。默认端口都是8080</p>
