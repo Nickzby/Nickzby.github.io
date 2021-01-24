@@ -210,7 +210,7 @@
     
     
     <span class="dot"></span>
-    <span>1.4k 字</span>
+    <span>1.5k 字</span>
     
   </div>
   
@@ -237,7 +237,7 @@
   </header>
   <div id="section" class="post-content">
     <p>此博客使用hexo搭建，特此记录，以便后续查阅<br><a id="more"></a></p>
-<div class="post-note note-info"><p>文章最后更新于2021年1月22日</p></div>
+<div class="post-note note-info"><p>文章最后更新于2021年1月24日</p></div>
 <h2 id="搭建博客参考"><a href="#搭建博客参考" class="headerlink" title="搭建博客参考"></a>搭建博客参考</h2><p>首先搭建博客基本参考以下两个文档的<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/860d3e0fff58">Hexo+GithubPages 非常简单易行的搭建个人博客</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36759224/article/details/82121420">使用 Github Pages 和 Hexo 搭建自己的独立博客【超级详细的小白教程】</a>  </p>
 <h2 id="安装程序"><a href="#安装程序" class="headerlink" title="安装程序"></a>安装程序</h2><p>依次安装<strong>Git</strong>,<strong>Node.js</strong>和<strong>Hexo</strong></p>
 <pre class="highlight"><code class="hljs powershell">git -<span class="hljs-literal">-version</span><br>node <span class="hljs-literal">-v</span><br>npm <span class="hljs-literal">-v</span><br></code></pre>
@@ -265,7 +265,7 @@
 <p>在主题配置文件中选择<code>latex: true</code>和<code>engine: mathjax</code>。以后在需要数学渲染的文章中加上<code>latex:true</code>,加快渲染速度，避免不需要渲染的文章也用引擎。</p>
 <h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><p>找了一个<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f72aaad7b852">教程</a><br>不能简单的像markdown使用相对路径插入图片。官方给出三种<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders">方法</a>，我选择教程的方法。<br><code>npm install hexo-asset-image --save</code><br>然后在站点_config.yml文件中，打开post_asset_folder.<br>打开<code>/node_modules/hexo-asset-image/index.js</code>,将文件更换，不然好像会出现bug。<br>之后再写文章时，新建文章会出现和文章同名的文件夹，将需要引用的图片放进去就行了，格式如下</p>
 <pre class="highlight"><code class="hljs markdown">![<span class="hljs-string">图片</span>](<span class="hljs-link">head.jpeg</span>)<br></code></pre>
-<p>不过我也在考虑图床，以后可以用用</p>
+<p>不过我也在考虑图床，以后可以用用<br>又找到了新的方式，就放在/image文件夹里，如上的格式引用即可，注意加上/image，另外注意后缀名字，.png变成大写.PNG</p>
 <h3 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h3><p>在阿里购买的域名，凑合用。<br>在域名解析里添加两个记录，两个记录类型都是<code>CNAME</code>,第一个的主机记录为@,第二个的主机记录为www,记录值都是博客地址（username.github.io）,然后保存，可能需要等1分钟左右。<br>最后还要在根目录里添加文件<code>CNAME</code>,文件内容就简单填写一行域名<code>example.com</code>即可,加不加<code>www</code>都行。没反应了在<code>source</code>文件夹里再添加一次这个文件</p>
 <h3 id="声明链接中文"><a href="#声明链接中文" class="headerlink" title="声明链接中文"></a>声明链接中文</h3><p>正在整理。。。<br>不显示中文了，在站点配置中修改变更为hash值，就没有那么多%了。</p>
 
