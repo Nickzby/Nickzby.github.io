@@ -217,7 +217,7 @@
     
     
     <span class="dot"></span>
-    <span>470 字</span>
+    <span>471 字</span>
     
   </div>
   
@@ -236,8 +236,20 @@
     <p>树莓派常用的命令，因为系统原因，可以用其他linux相关命令<br><a id="more"></a></p>
 <div class="post-note note-info"><p>最后更新于2021年1月24日</p></div>
 <h2 id="树莓派常用命令"><a href="#树莓派常用命令" class="headerlink" title="树莓派常用命令"></a>树莓派常用命令</h2><p>以下记录树莓派常用的命令，因为系统原因，可以用其他linux相关命令。<br>因为曾经做的项目（树莓派电台）的原因，我这里记录了当时需要用的命令。</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class="highlight"><code class="hljs bash">sudo -i                <span class="hljs-comment">#在树莓派中将一直以管理员身份运行</span><br><span class="hljs-built_in">logout</span>                 <span class="hljs-comment">#退出管理员身份</span><br>sudo raspi-config      <span class="hljs-comment">#打开树莓派设置</span><br>sudo halt              <span class="hljs-comment">#合理关闭运行的后台，然后关机。 推荐使用</span><br>sudo reboot            <span class="hljs-comment">#关机重启</span><br>sudo apt-get update    <span class="hljs-comment">#检查更新软件</span><br>sudo apt-get upgrade   <span class="hljs-comment">#检查更新软件  一套使用</span><br><span class="hljs-built_in">cd</span>                     <span class="hljs-comment">#切换目录</span><br>./                     <span class="hljs-comment">#运行程序  考虑实际，建议加上sudo 不然会提示权限不够,permission denied</span><br>sudo nano /Desktop/x.txt <span class="hljs-comment">#打开编辑文件</span><br>lsusb                  <span class="hljs-comment">#设备情况</span><br></code></pre>
-<h3 id="声卡配置"><a href="#声卡配置" class="headerlink" title="声卡配置"></a>声卡配置</h3><pre class="highlight"><code class="hljs bash">lsusb                   <span class="hljs-comment">#设备情况</span><br>alsamixer               <span class="hljs-comment">#打开设置界面，可调声音，切换声卡</span><br>speaker-test -Dplughw:CARD=Device -c2 -twav<br></code></pre>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> -i                <span class="token comment">#在树莓派中将一直以管理员身份运行</span>
+<span class="token builtin class-name">logout</span>                 <span class="token comment">#退出管理员身份</span>
+<span class="token function">sudo</span> raspi-config      <span class="token comment">#打开树莓派设置</span>
+<span class="token function">sudo</span> <span class="token function">halt</span>              <span class="token comment">#合理关闭运行的后台，然后关机。 推荐使用</span>
+<span class="token function">sudo</span> <span class="token function">reboot</span>            <span class="token comment">#关机重启</span>
+<span class="token function">sudo</span> <span class="token function">apt-get</span> update    <span class="token comment">#检查更新软件</span>
+<span class="token function">sudo</span> <span class="token function">apt-get</span> upgrade   <span class="token comment">#检查更新软件  一套使用</span>
+<span class="token builtin class-name">cd</span>                     <span class="token comment">#切换目录</span>
+./                     <span class="token comment">#运行程序  考虑实际，建议加上sudo 不然会提示权限不够,permission denied</span>
+<span class="token function">sudo</span> <span class="token function">nano</span> /Desktop/x.txt <span class="token comment">#打开编辑文件</span>
+lsusb                  <span class="token comment">#设备情况</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="声卡配置"><a href="#声卡配置" class="headerlink" title="声卡配置"></a>声卡配置</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lsusb                   <span class="token comment">#设备情况</span>
+alsamixer               <span class="token comment">#打开设置界面，可调声音，切换声卡</span>
+speaker-test -Dplughw:CARD<span class="token operator">=</span>Device -c2 -twav<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>其中-D选项按设备名称plughw:CARD=Device选定USB声卡，-c2是左右双声道，-twav选定播放.wav声音文件，<br>如果没有指定.wav声音文件名，则播放缺省的声音。left right</p>
 <h3 id="录制声音"><a href="#录制声音" class="headerlink" title="录制声音"></a>录制声音</h3><p><code>arecoed -Dplughw:CARD=Device -fcd -c2 -twav test.wav</code><br>可以使用arecord命令录制音频，然后使用aplay命令回放，-D选项按名称选定设备，-f选项设定音频格式，-c选项是声道数，-t选项是音频文件格式，详细选项设置内容可使用<code>man</code>查看。</p>
 <h3 id="播放声音"><a href="#播放声音" class="headerlink" title="播放声音"></a>播放声音</h3><p><code>aplay -Dplughw:CARD=Device test.wav</code></p>
@@ -345,17 +357,17 @@
         </div>
       </a>
     
-      <a href="/categories/树莓派">
-        <div class="categories-list-item">
-          树莓派
-          <span class="categories-list-item-badge">5</span>
-        </div>
-      </a>
-    
       <a href="/categories/摘抄">
         <div class="categories-list-item">
           摘抄
           <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/树莓派">
+        <div class="categories-list-item">
+          树莓派
+          <span class="categories-list-item-badge">5</span>
         </div>
       </a>
     
@@ -372,19 +384,19 @@
     
     <a href="\tags\Git" title="Git"><div class="tags-list-item">Git</div></a>
     
-    <a href="\tags\poem" title="poem"><div class="tags-list-item">poem</div></a>
-    
-    <a href="\tags\电台" title="电台"><div class="tags-list-item">电台</div></a>
+    <a href="\tags\kali" title="kali"><div class="tags-list-item">kali</div></a>
     
     <a href="\tags\配置" title="配置"><div class="tags-list-item">配置</div></a>
     
-    <a href="\tags\kali" title="kali"><div class="tags-list-item">kali</div></a>
+    <a href="\tags\电台" title="电台"><div class="tags-list-item">电台</div></a>
     
-    <a href="\tags\markdown" title="markdown"><div class="tags-list-item">markdown</div></a>
+    <a href="\tags\poem" title="poem"><div class="tags-list-item">poem</div></a>
     
     <a href="\tags\blog" title="blog"><div class="tags-list-item">blog</div></a>
     
     <a href="\tags\Hexo" title="Hexo"><div class="tags-list-item">Hexo</div></a>
+    
+    <a href="\tags\markdown" title="markdown"><div class="tags-list-item">markdown</div></a>
     
   </div>
 </div>
