@@ -206,7 +206,7 @@
     
     
     <span class="dot"></span>
-    <span>987 字</span>
+    <span>989 字</span>
     
   </div>
   
@@ -270,22 +270,19 @@
 <li><p>下载依赖包  </p>
 </li>
 </ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> libjpeg8-dev
-<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> cmake<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs bash">sudo apt-get install libjpeg8-dev<br>sudo apt-get install cmake<br></code></pre>
 <ol>
 <li>编译</li>
 </ol>
 <p>有又出现warning的可能，建议sudo执行)</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> mjpg-streamer-master/mjpg-streamer-experimental
-<span class="token function">make</span> clean all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs bash"><span class="hljs-built_in">cd</span> mjpg-streamer-master/mjpg-streamer-experimental<br>make clean all<br></code></pre>
 <ol>
 <li><p>添加摄像头，因为需要在网页视频流中启用摄像头。而摄像头仅仅可以拍照和拍摄简单视频，并不能达到实时监控的效果，另外<code>ls /dev</code> 没有video0。<br><code>chmod 777 /etc/modules</code></p>
 </li>
 <li><p>改变文档权限。<br>在该文档最后一行添加bcm2835-v4l2<br>重启<code>sudo halt</code></p>
 </li>
 <li><p>有mjpg和vlc两种方式，后者有些麻烦，反正没实现。这次使用前者。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> mjpg-streamer-master/mjpg-streamer-experimental
-./mjpg_streamer -i <span class="token string">"./input_raspicam.so"</span> -o <span class="token string">"./output_http.so -w ./www"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<pre class="highlight"><code class="hljs bash"><span class="hljs-built_in">cd</span> mjpg-streamer-master/mjpg-streamer-experimental<br>./mjpg_streamer -i <span class="hljs-string">&quot;./input_raspicam.so&quot;</span> -o <span class="hljs-string">&quot;./output_http.so -w ./www&quot;</span><br></code></pre></li>
 <li>可改变一些参数<br><code>i &quot;./input_raspicam.so -fps 60 -x 320 -y 240&quot;</code><br><code>-p 80</code>改变端口<br>暂时就这么多吧</li>
 </ol>
 

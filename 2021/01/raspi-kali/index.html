@@ -208,7 +208,7 @@
     
     
     <span class="dot"></span>
-    <span>921 字</span>
+    <span>919 字</span>
     
   </div>
   
@@ -253,18 +253,10 @@
 <li>用户名和密码都是kali，以前都是默认root用户，现在2020年革新，初始不再是root用户，需要手动切换<code>sudo su</code>,继续输入默认密码kali</li>
 <li>使用命令行（因为我没连接显示屏）连接wifi，有了这一步基本就走到新世界大门了。这里有<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1494772">链接</a>,节省时间我贴出来。</li>
 </ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ifconfig</span>          <span class="token comment">#找到无线网卡，应该都是wlan0</span>
-<span class="token function">ifconfig</span> wlan0 up <span class="token comment">#启动wifi</span>
-wpa_passphrase <span class="token punctuation">&#123;</span>SSID<span class="token punctuation">&#125;</span> <span class="token punctuation">&#123;</span>PASSWORD<span class="token punctuation">&#125;</span> <span class="token operator">></span> /etc/wpa_supplicant/<span class="token punctuation">&#123;</span>SSID<span class="token punctuation">&#125;</span>.conf
-                  <span class="token comment">#其中花括号&#123;&#125;不用加，这一步是添加需要连接的wifi信息</span>
-wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/<span class="token punctuation">&#123;</span>SSID<span class="token punctuation">&#125;</span>.conf -B
-                  <span class="token comment">#连接无线网，&#123;&#125;依然不用加</span>
-dhclient wlan0    <span class="token comment">#分配ip，不清楚为什么要手动，以为都是自动的。</span>
-<span class="token function">ifconfig</span>          <span class="token comment">#检测连接是否成功</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs bash">ifconfig          <span class="hljs-comment">#找到无线网卡，应该都是wlan0</span><br>ifconfig wlan0 up <span class="hljs-comment">#启动wifi</span><br>wpa_passphrase &#123;SSID&#125; &#123;PASSWORD&#125; &gt; /etc/wpa_supplicant/&#123;SSID&#125;.conf<br>                  <span class="hljs-comment">#其中花括号&#123;&#125;不用加，这一步是添加需要连接的wifi信息</span><br>wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/&#123;SSID&#125;.conf -B<br>                  <span class="hljs-comment">#连接无线网，&#123;&#125;依然不用加</span><br>dhclient wlan0    <span class="hljs-comment">#分配ip，不清楚为什么要手动，以为都是自动的。</span><br>ifconfig          <span class="hljs-comment">#检测连接是否成功</span><br></code></pre>
 <p>完成上面的，只是说这次能用wifi，关机重启还是不能连接。</p>
 <p>再附加几个命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iw wlan0 scan     <span class="token comment">#扫描无线网络</span>
-iw wlan0 <span class="token function">link</span>     <span class="token comment">#查看无线状态</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs bash">iw wlan0 scan     <span class="hljs-comment">#扫描无线网络</span><br>iw wlan0 link     <span class="hljs-comment">#查看无线状态</span><br></code></pre>
 <p>vncserver 设置密码kalikali<br>priority 在wpa_supplicant中有优先级的意思，数字越大优先级越高<br>network中直接多个设置，有花括号。</p>
 <ol>
 <li>换源</li>
@@ -273,18 +265,7 @@ iw wlan0 <span class="token function">link</span>     <span class="token comment
 <p><code>deb-src http://http.kali.org/kali kali-rolling main non-free contrib</code><br>可能会切换到东软，这个源不错。中科大和清华的一些kali-roll似乎软件不够。</p>
 <p>ok,以上就是将kali安装进树莓派的全部内容了，还有设置中文、时区等一些其他的问题，我觉得无关紧要。下面开始介绍细节配置问题。</p>
 <h2 id="wifi配置"><a href="#wifi配置" class="headerlink" title="wifi配置"></a>wifi配置</h2><p>为了不用每次登录都要找网线，或者重新进行一边上面的命令，修改一些配置可达到目的。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /etc/wpa_supplicant/    <span class="token comment">#进入目录</span>
-wpa_passphrase <span class="token string">"ssid"</span> <span class="token string">"12345678"</span> <span class="token operator">></span> wpa_supplicant.conf 
-<span class="token comment">#设置要连接的wifi名称和密码（经测试在更换wifi时会刷新文件配置留下一个最近的wifi）</span>
-<span class="token function">vi</span> /etc/network/interfaces
-
-<span class="token comment">#在文件中添加下面配置</span>
-auto wlan0
-allow-hotplug wlan0     <span class="token comment">#使用wlan0</span>
-iface wlan0 inet manual <span class="token comment">#manual在某些教程中换成了dhcp</span>
-wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
-iface default inet dhcp
-<span class="token function">reboot</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs bash"><span class="hljs-built_in">cd</span> /etc/wpa_supplicant/    <span class="hljs-comment">#进入目录</span><br>wpa_passphrase <span class="hljs-string">&quot;ssid&quot;</span> <span class="hljs-string">&quot;12345678&quot;</span> &gt; wpa_supplicant.conf <br><span class="hljs-comment">#设置要连接的wifi名称和密码（经测试在更换wifi时会刷新文件配置留下一个最近的wifi）</span><br>vi /etc/network/interfaces<br><br><span class="hljs-comment">#在文件中添加下面配置</span><br>auto wlan0<br>allow-hotplug wlan0     <span class="hljs-comment">#使用wlan0</span><br>iface wlan0 inet manual <span class="hljs-comment">#manual在某些教程中换成了dhcp</span><br>wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf<br>iface default inet dhcp<br>reboot<br></code></pre>
 <p>未完待续。。。</p>
 
   </div>

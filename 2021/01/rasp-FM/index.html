@@ -208,7 +208,7 @@
     
     
     <span class="dot"></span>
-    <span>569 字</span>
+    <span>565 字</span>
     
   </div>
   
@@ -234,23 +234,12 @@
 <p>树莓派-FM电台<br>使用树莓派3B，系统使用jessie。<br>使用树莓派4及buster最新系统暂时不行。有一些莫名奇怪的文件错误（库文件不存在，函数warning等）。当然也有可能是文件依赖的问题，通过使用树莓派实验室方法发现sndfile文件依赖问题（也是主要问题）</p>
 <h3 id="官方常规方法"><a href="#官方常规方法" class="headerlink" title="官方常规方法"></a>官方常规方法</h3><p>该小软件依赖sndfile库，首先安装该库：<br><code>sudo apt-get install libsndfile1-dev</code>  </p>
 <p>接下来克隆软件的源码  </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/ChristopheJacquet/PiFmRds.git
-<span class="token builtin class-name">cd</span> PiFmRds/src      <span class="token comment"># 切换目录</span>
-<span class="token function">make</span> clean          <span class="token comment"># 清楚关联文件</span>
-<span class="token function">make</span>                <span class="token comment"># 编译处理</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/ChristopheJacquet/PiFmRds.git<br><span class="hljs-built_in">cd</span> PiFmRds/src      <span class="hljs-comment"># 切换目录</span><br>make clean          <span class="hljs-comment"># 清楚关联文件</span><br>make                <span class="hljs-comment"># 编译处理</span><br></code></pre>
 <p>编译完成后，输入以下命令运行程序<br><code>sudo ./pi_fm_rds -audio sound.wav</code><br>此时就会在树莓派的GPIO 4 (40针P1接口的第7管脚)上产生FM发射波，默认频率107.9,默认音频sound.wav<br>加入参数<code>-freq</code>可定义发射频率 以MHz为单位<br><code>-audio</code>指定一个音频文件作为音频播放。如果提供立体声文件，则Pi-FM-RDS将产生FM立体声信号。例如：-audio sound.wav。支持的格式取决于libsndfile。这包括WAV和Ogg / Vorbis（等），但不包括MP3。<br><code>-pi</code>指定RDS广播的PI代码。4个十六进制数字。例如：-pi FFFF。<br><code>-ps</code>指定RDS广播的电台名称（节目服务名称，PS）。限制：8个字符。例如：-ps RASP-PI。<br><code>-rt</code>指定要传输的无线文本（RT）。限制：64个字符。例如：-rt ‘Hello, world!’。<br><code>-ctl</code>指定一个命名管道（FIFO）作为控制通道在运行时改变PS和RT（见下文）。<br><code>-ppm</code> 以百万分率（ppm）为单位指定树莓派的振荡器误差。<br>可增加杜邦线，增大发射范围。</p>
 <h3 id="树莓派实验室-参考-方法"><a href="#树莓派实验室-参考-方法" class="headerlink" title="树莓派实验室(参考)方法"></a>树莓派实验室(参考)方法</h3><p>以下安装必要组件，文件依赖。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http://pan.baidu.com/s/1kV2G9Vp     <span class="token comment">#先下载这个百度云文件  上传至树莓派</span>
-<span class="token function">tar</span> -xvzf libsndfile-1.0.25.tar.gz  <span class="token comment">#解压缩包</span>
-<span class="token builtin class-name">cd</span> libsndfile-1.0.25                <span class="token comment">#进入目录</span>
-./configure                         <span class="token comment">#配置文件</span>
-<span class="token function">make</span>                                <span class="token comment">#编译文件</span>
-<span class="token function">make</span> <span class="token function">install</span>                        <span class="token comment">#安装</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs bash">http://pan.baidu.com/s/1kV2G9Vp     <span class="hljs-comment">#先下载这个百度云文件  上传至树莓派</span><br>tar -xvzf libsndfile-1.0.25.tar.gz  <span class="hljs-comment">#解压缩包</span><br><span class="hljs-built_in">cd</span> libsndfile-1.0.25                <span class="hljs-comment">#进入目录</span><br>./configure                         <span class="hljs-comment">#配置文件</span><br>make                                <span class="hljs-comment">#编译文件</span><br>make install                        <span class="hljs-comment">#安装</span><br></code></pre>
 <p>剩下的与常规方法相同</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/ChristopheJacquet/PiFmRds.git
-<span class="token builtin class-name">cd</span> PiFmRds/src
-<span class="token function">make</span> clean
-<span class="token function">make</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="highlight"><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/ChristopheJacquet/PiFmRds.git<br><span class="hljs-built_in">cd</span> PiFmRds/src<br>make clean<br>make<br></code></pre>
 <h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p><a target="_blank" rel="noopener" href="http://shumeipai.nxez.com/2016/04/25/raspberry-pi-set-up-a-small-fm-radio-transmitter.html">树莓派实验室</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/ChristopheJacquet/PiFmRds">github文件</a></p>
 

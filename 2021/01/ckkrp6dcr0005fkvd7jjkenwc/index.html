@@ -8,24 +8,28 @@
   <meta name="theme-color" content="#fff" id="theme-color">
   <meta name="description" content="Hexo">
   <link rel="icon" href="/image/p3.PNG">
-  <title>Hello World</title>
+  <title>git简记</title>
   
   
-  <meta property="og:title" content="Hello World">
+  <meta property="og:title" content="git简记">
   
   
-  <meta property="og:url" content="http://funguyblog.top/2021/01/ckkrokybi0002ikvd1k9286s7/index.html">
+  <meta property="og:url" content="http://funguyblog.top/2021/01/ckkrp6dcr0005fkvd7jjkenwc/index.html">
   
   
   <meta property="og:img" content="/image/p3.PNG">
   
   
+  <meta property="og:img" content="&lt;p&gt;其实我也不清楚怎么用，下面的是我找的别人的教程。&lt;br&gt;&lt;/p&gt;">
+  
   
   <meta property="og:type" content="article">
-  <meta property="og:article:published_time" content="2021-01-19">
-  <meta property="og:article:modified_time" content="2021-01-19">
+  <meta property="og:article:published_time" content="2021-01-22">
+  <meta property="og:article:modified_time" content="2021-01-22">
   <meta property="og:article:author" content="By">
   
+  
+  <meta property="og:article:tag" content="Git">
   
   
   
@@ -186,39 +190,84 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      Hello World
+      git简记
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2021-01-19T13:40:52.138Z">
+    <time datetime="2021-01-22T10:59:11.000Z">
       <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
-      <span>2021-01-19</span>
+      <span>2021-01-22</span>
     </time>
+    
+    <span class="dot"></span>
+    
+    <a href="/categories/学习/" class="post-meta-link">学习</a>
+    
     
     
     <span class="dot"></span>
-    <span>73 字</span>
+    <span>446 字</span>
     
+  </div>
+  
+  <div class="post-meta post-show-meta" style="margin-top: -10px;">
+    <div style="display: flex; align-items: center;">
+      <i class="iconfont icon-biaoqian" style="margin-right: 2px; font-size: 1.15rem;"></i>
+      
+      
+        <a href="/tags/Git/" class="post-meta-link">Git</a>
+      
+    </div>
   </div>
   
   </header>
   <div id="section" class="post-content">
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <p>其实我也不清楚怎么用，下面的是我找的别人的教程。<br><a id="more"></a></p>
+<ul>
+<li>首先vscode要安装git, 方便在前者自带的终端操作</li>
+<li>为避免浪费时间，建议直接git bash here直接操作，尤其是远程连接仓库的部分</li>
+<li>另外如果没有反应可以重启vscode，或清理工作树（未知）</li>
+</ul>
+<pre class="highlight"><code class="hljs git">git --version<br></code></pre>
+<p>查看版本也相当于检查有没有安装git.</p>
+<ul>
+<li><p>在Github或者Gitlab或者码云(应该也行)创建仓库repo,私人或者公开。</p>
+</li>
+<li><p>在本地创建文件夹mycode(用于和线上绑定，方便同步)</p>
+</li>
+<li>在vscode进入本地文件夹mycode<code>dir \path\mycode</code>,并初始化<code>git init</code></li>
+<li>添加用户名和邮箱，只用注册时用的用户名和邮箱,gitlab使用的是域，注意后缀不是普通的@gitlab.com</li>
+</ul>
+<pre class="highlight"><code class="hljs git">git config --global user.name &quot;myname&quot;<br>git config --global user.email &quot;myname@mymail.com&quot;<br></code></pre>
+<p>参数<code>--global</code>不建议添加，这意味着全部仓库密钥都会用这个，我没有添加</p>
+<ul>
+<li>开始生成密钥，这里使用rsa, 2048位</li>
+</ul>
+<pre class="highlight"><code class="hljs powershell">ssh<span class="hljs-literal">-keygen</span> <span class="hljs-literal">-t</span> rsa <span class="hljs-literal">-b</span> <span class="hljs-number">2048</span> <span class="hljs-literal">-C</span> <span class="hljs-string">&quot;email@example.com&quot;</span><br></code></pre>
+<p>之后出现</p>
+<pre class="highlight"><code class="hljs ssh">Generating public&#x2F;private rsa key pair.<br>Enter file in which to save the key (&#x2F;home&#x2F;user&#x2F;.ssh&#x2F;id_rsa):<br></code></pre>
+<p>因为之前没有生成过密钥，默认放置如上位置，此时回车即可，<code>\.ssh</code>文件夹中将出现两种文件，<strong>id_rsa</strong>和<strong>id_rsa.pub</strong></p>
+<ul>
+<li>将id_rsa.pub中的密钥复制粘贴至线上ssh设置中</li>
+<li>绑定本地文件夹和线上仓库</li>
+</ul>
+<pre class="highlight"><code class="hljs git">git remote add mycode git@github.com:myname&#x2F;myrepo.git<br></code></pre>
+<p>之后的修改便可在本地文件夹操作</p>
+<ul>
+<li>可以做一次连接测试</li>
+</ul>
+<pre class="highlight"><code class="hljs ssh">ssh -T git@github.com<br></code></pre>
+<ul>
+<li>如果本地文件需要更新，选择<strong>拉取</strong></li>
+<li>需要上传云端，先<strong>提交</strong>保存至本地，然后<strong>推送</strong></li>
+</ul>
 
   </div>
   <div>
   
   <div class="post-note note-warning copyright" style="margin-top: 42px">
     <p><span style="font-weight: bold;">作者：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://funguyblog.top/about">By</a></p>
-    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://funguyblog.top/2021/01/ckkrokybi0002ikvd1k9286s7/">http://funguyblog.top/2021/01/ckkrokybi0002ikvd1k9286s7/</a></p>
+    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://funguyblog.top/2021/01/ckkrp6dcr0005fkvd7jjkenwc/">http://funguyblog.top/2021/01/ckkrp6dcr0005fkvd7jjkenwc/</a></p>
     <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
   </div>
   
@@ -227,23 +276,35 @@
 <div class="nav">
   
   <div class="nav-item-prev">
-    <a href="/2021/01/hexo_blog/" class="nav-link">
+    <a href="/2021/01/simple_markdown/" class="nav-link">
       <i class="iconfont icon-left nav-prev-icon"></i>
       <div>
         <div class="nav-label">上一篇</div>
         
-        <div class="nav-title">使用hexo搭建博客 </div>
+        <div class="nav-title">Markdown </div>
         
       </div>
     </a>
   </div>
   
   
+  <div class="nav-item-next">
+    <a href="/2021/01/test/" class="nav-link">
+      <div>
+        <div class="nav-label">下一篇</div>
+        
+        <div class="nav-title">格式测试 </div>
+        
+      </div>
+      <i class="iconfont icon-right nav-next-icon"></i>
+    </a>
+  </div>
+  
 </div>
 
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+
 </div></main>
           <aside class="left-column">
             
@@ -286,7 +347,7 @@
   <article class="display-when-two-columns spacer">
     <div class="card card-content toc-card">
       <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+
     </div>
   </article>
   
@@ -357,7 +418,7 @@
   
   <article class="card card-content toc-card">
     <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+
   </article>
   
   
